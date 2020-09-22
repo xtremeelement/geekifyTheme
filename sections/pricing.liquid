@@ -4,53 +4,31 @@
         <p class="lead">{{section.settings.description}}</p>
     </div>
     <div class="card-deck mb-3 text-center">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Free</h4>
-        </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>10 users included</li>
-            <li>2 GB of storage</li>
-            <li>Email support</li>
-            <li>Help center access</li>
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-        </div>
-      </div>
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Pro</h4>
-        </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>20 users included</li>
-            <li>10 GB of storage</li>
-            <li>Priority email support</li>
-            <li>Help center access</li>
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-        </div>
-      </div>
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Enterprise</h4>
-        </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>30 users included</li>
-            <li>15 GB of storage</li>
-            <li>Phone and email support</li>
-            <li>Help center access</li>
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-        </div>
-      </div>
+        {% for block in section.blocks %}
+        {% assign description_list = block.settings.tier_description | split: ', ' %}
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{block.settings.tier_name}}</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">${{block.settings.tier_price}} <small class="text-muted">/ {{block.settings.tier_recurrence}}</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        {% for item in description_list %}
+                            <li>{{item}}</li>
+                        {% endfor %}                        
+                    </ul>
+                    {% if block.settings.tier_button == "outline" %}
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">{{block.settings.button_text}}</button>  
+                    {% else %}
+                        <button type="button" class="btn btn-lg btn-block btn-primary">{{block.settings.button_text}}</button>  
+                    {% endif %}
+                </div>
+            </div>                
+        {% endfor %}
     </div>
-  </div>
+</div>
+                          
+                                           
 
   {% schema %}
   {
@@ -110,11 +88,11 @@
                     "default": "mo"
                 },
                 {
-                    "id": "tier_Description",
+                    "id": "tier_description",
                     "type": "textarea",
                     "label": "Tier Description",
                     "info" :"Separate each item by a comma",
-                    "default": "10 users incluced, 2GB of storage, Email Support, Help Center Access",
+                    "default": "10 users included, 2GB of storage, Email Support, Help Center Access",
                     "placeholder": "Example A, Example B, Example B"
 
                 },
