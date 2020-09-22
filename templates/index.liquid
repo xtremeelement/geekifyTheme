@@ -1,4 +1,6 @@
-{% include 'pricing' %}
+{% section 'pricing' %}
+
+<!-- {% include 'pricing' %}
 {% for product in collections.frontpage.products limit:4 %}
   <div>
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
@@ -8,4 +10,4 @@
       <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
     </a>
   </div>
-{% endfor %}
+{% endfor %} -->
