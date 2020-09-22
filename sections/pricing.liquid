@@ -18,9 +18,9 @@
                         {% endfor %}                        
                     </ul>
                     {% if block.settings.tier_button == "outline" %}
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">{{block.settings.button_text}}</button>  
+                        <a href="{{block.settings.tier_link}}" type="button" class="btn btn-lg btn-block btn-outline-primary">{{block.settings.button_text}}</a>  
                     {% else %}
-                        <button type="button" class="btn btn-lg btn-block btn-primary">{{block.settings.button_text}}</button>  
+                        <a href="{{block.settings.tier_link}}" type="button" class="btn btn-lg btn-block btn-primary">{{block.settings.button_text}}</a>  
                     {% endif %}
                 </div>
             </div>                
@@ -125,6 +125,16 @@
                     "default" : "#"
                 }
             ]
+        }
+    ],
+    "presets":[
+        {
+            "category": "Custom Component",
+            "name": "Pricing",
+            "settings": {
+                "title": "Pricing",
+                "description":"Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization."
+            }
         }
     ]    
   }
