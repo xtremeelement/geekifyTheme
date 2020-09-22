@@ -13,7 +13,7 @@
 </head>
 <body>  
   {% include 'header' %}
-  <img src="{{'backpacking.jpg' | asset_url}}" alt="" srcset="">
+  {% section 'hero' %}
   <main role="main">
     {{ content_for_layout }}
   </main>

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="jumbotron" style="background-image:url('https://cdn.pixabay.com/photo/2015/11/07/11/40/hiking-1031383_960_720.jpg') ; background-size: cover; background-position: center;">
+        <h1 class="display-4 centered" style="color: white;">{{shop.name | upcase}}</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+       
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Pricing Section",
+    "class": "section-pricing",
+    "tag": "section",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default": "Pricing"
+      },
+      {
+          "id" : "description",
+          "type" : "textarea",
+          "label" : "Description",
+          "default" : "Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization."
+      }
+    ]
+}
+{% endschema %}
